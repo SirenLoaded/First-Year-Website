@@ -1,0 +1,151 @@
+gmail<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Arman's Movie & Actor Database </title>
+  <LINK REL='stylesheet' TYPE='text/css' HREF='cwstyle.css'>
+  <script src="cwscript.js"></script>
+</head>
+
+
+<body>
+
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onmousedown = disable; //IE
+    message = "Right click is disabled on this website. This is to prevent people from finding the SQL code and using it to hack into the linked MySQL database";
+    function disable(e) {
+
+      if (e == null) {
+        e = window.event;
+        if (e.button == 2) {
+
+          alert(message);
+          return false;
+        }
+      }
+      document.onclick = ffdisable;  //FF
+    }
+    function ffdisable(e) {
+      if (e.button == 2) { //firefox disable
+        alert(message);
+        return false;
+      }
+    }
+  </script>
+
+  <!-- putting an image on my website and then aligning it while also giving it dimensions-->
+  <img src="database.png" width="200" height="200" alt="Database logo" align="right">
+
+  <img src="database.png" width="200" height="200" alt="Database logo" align="left">
+
+  <!-- here i use a css class to define the properties of my gif-->
+  <img src="movie.gif" class="centerImage" width="400" alt="movie gif">
+
+  <br>
+  <!-- greeting using javascript-->
+  <script>
+    function greeting() {
+
+      alert("Welcome to Arman's Movie & Actor Database");
+    }
+  </script>
+
+
+  <!-- below I define a script for a button that gives information about searching through databases, js-->
+  <script>
+
+    function giveSearchInfo() {
+      alert("If you get an empty table when searching for something, then your query doesn't exist");
+    }
+
+    function giveDeleteInfo() {
+      alert("You cannot delete an actor if they are starring in a movie that is in this database. You must first delete all the movies they are in, then you can delete the actor");
+    }
+
+  </script>
+  
+  <br>  <a href="https://www.cineworld.co.uk/#/">Cineworld has a great cinema in Nottingham</a>  <br>
+  <p>On this website you can search, add and delete your favourite actors and movies</p>
+  <button type="button" onclick="giveSearchInfo()">Info about searching</button>
+  <button type="button" onclick="giveDeleteInfo()">Info about deleting</button>
+
+
+  <h1> Show all movies </h1>
+  <form action="show_all_movies.php" onSubmit="return validate(this)">
+
+    Click to see all movies <br>
+    <input type="submit" value="Show">
+  </form>
+
+  <h1> Show all actors </h1>
+  <form action="show_all_actors.php" onSubmit="return validate(this)">
+
+    Click to see all actors <br>
+    <input type="submit" value="Show">
+  </form>
+
+  <h1> Search For a Movie by Title</h1>
+  <form action="search_movie.php" onSubmit="return validate(this)">
+
+    Movie title: <br>
+    <input type="text" name="title">
+    <br>
+    <input type="submit" value="Search">
+  </form>
+
+  <h1> Search For an Actor by Name</h1>
+  <form action="search_actor.php" onSubmit="return validate(this)">
+
+    Actor Name: <br>
+    <input type="text" name="title">
+    <br>
+    <input type="submit" value="Search">
+  </form>
+
+  <h1> Add a Movie by Actor Name, Title, Year, Price & Genre </h1>
+  <form action="add_movie.php" onSubmit="return validateMovie(this)">
+
+    <input type="text" name="actor">
+    <input type="text" name="title">
+    <input type="text" name="year">
+    <input type="text" name="price">
+    <input type="text" name="genre">
+    <br>
+    <input type="submit" value="Add">
+  </form>
+
+  <h1> Add an Actor by Name</h1>
+  <form action="add_actor.php" onSubmit="return validate(this)">
+
+    Actor Name: <br>
+    <input type="text" name="title">
+    <br>
+    <input type="submit" value="Add">
+  </form>
+
+  <h1> Delete a Movie by Title</h1>
+  <form action="delete_movie.php" onSubmit="return validate(this)">
+
+    Movie title: <br>
+    <input type="text" name="title">
+    <br>
+    <input type="submit" value="Delete">
+  </form>
+
+  <h1> Delete an Actor by Name</h1>
+  <form action="delete_actor.php" onSubmit="return validate(this)">
+
+    Actor Name: <br>
+    <input type="text" name="title">
+    <br>
+    <input type="submit" value="Delete">
+
+  </form>
+
+  <body onload="greeting()"></body>
+
+</body>
+
+
+</html>
